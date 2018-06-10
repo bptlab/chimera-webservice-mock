@@ -6,7 +6,7 @@ import logging
 import os
 
 hostName = os.getenv("HOST", "localhost")
-hostPort = os.getenv("HOST_PORT", 9000)
+hostPort = int(os.getenv("PORT", 9000))
 
 def get_logger(class_name):
 	logging.basicConfig(
