@@ -1,0 +1,12 @@
+{
+  "name": "Chimera Webservice Mock Server",
+  "description": "Mocks a server for Chimera webservice tasks",
+  "keywords": [
+    "mock",
+    "chimera",
+    "server",
+    "bpm"
+  ],
+  "website": "https://github.com/bptlab/chimera-webservice-mock",
+  "repository": "https://github.com/bptlab/chimera-webservice-mock"
+}

@@ -1,0 +1,28 @@
+sudo: required
+language: go
+go:
+- '1.10'
+services:
+- docker
+install:
+- make install
+script:
+- make lint
+- make build
+- make test_and_coverage
+after_success:
+- bash scripts/docker_build_and_push.sh
+deploy:
+  provider: heroku
+  api_key:
+    secure: Lph4WjSmuQ/YVLZnAdfsv3jsUZNN7XaKVndh72JisxPkY86qBCMxWeW+1O0BB9R2M+HLRDihvV3uytZ+7+yW/rMkLVO49sR2NveJbl1rkY0T30RKFgb3BbAYAUE+oiHV5wshYtgMjDZvb4BEY3DGf4A7Hxw+yq4Tf+ei9ISefS/7F0eRpc1/obPh4wUZgY5UFDl1dRjIpf+Hje/OfcsGgzOyJzhB9NlwQUF2Kfy9BJHJ3q4ouHNxC1zZmBU8J6WARwKG1Bo4QTNCJ7L4Shw0ApnLYY7UfA8ztwM55JMsVUJ9fV7KlaUFD0RgVM63AGYpHdCluE7VK7xRQTAkyEMowmdLleaY5hBrzUujg+aEr/2Pdoc+cppssyJhTgTjfjGF4QtA/dAgtWgdIlr0BrGGXfp57jts8z/N7zz7I7fEjSHD/DjRea6brhHrPhuKzR90Y6L5WUiDBsXs5uBQ+Rt5zAaZylEweZFsn2NUSxUgrw9AcntqIKxsn60HdW2xxaRbgeCw7QrAd2WiKyoYKxBidWpNZMYoKuMmTQvhGWA4u5xamdCuu3poFEu+LUDHYax8SWeEmt3/q1thyL4gshdy84dSP4+bKoecqn9uxa4XuYa2Wcp5ieVt9YySqNfMWFHwJ6XJWt4zppdVNxsdE87ZInIO2bIxXLRPDA+tISdMYks=
+  app:
+    master: goodberry-goodstag-prod
+    develop: goodberry-goodstag-stag
+cache:
+  directories:
+  - vendor
+notifications:
+  email:
+    on_success: change
+    on_failure: change
