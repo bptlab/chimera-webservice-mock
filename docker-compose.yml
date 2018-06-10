@@ -3,6 +3,6 @@ services:
   server:
     image: ${ORGANIZATION}/${REPO_NAME}:${TAG}
     ports:
-      - 8080:8080
+      - 9000:9000
     env_file:
       - .env
