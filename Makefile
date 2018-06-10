@@ -6,7 +6,7 @@ test:
 	echo "No tests."
 
 install:
-	pip install -r requirements
+	pip install -r requirements.txt
 
 lint:
 	echo "No linting configured."
